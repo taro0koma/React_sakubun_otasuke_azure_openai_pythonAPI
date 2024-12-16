@@ -11,7 +11,10 @@ client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
+print("<p>Hello World</p>")
+
 @app.route('/api/chat', methods=['POST'])
+
 def chat():
     """
     Endpoint to receive chat messages from external projects.
