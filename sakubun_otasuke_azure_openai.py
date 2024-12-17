@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Initialize Azure OpenAI client
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-    api_version="2024-02-01",
+    api_version="2024-05-13",
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
@@ -30,7 +30,7 @@ def chat():
 
         # Call Azure OpenAI API
         response = client.chat.completions.create(
-            model="gpt-35-turbo",  # Replace with your deployment name
+            model="gpt-4o",  # Replace with your deployment name
             messages=messages
         )
 
