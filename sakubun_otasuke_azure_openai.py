@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # CORS用ライブラリをインポート
 import os
 from openai import AzureOpenAI
 
 app = Flask(__name__)
+
+# CORSを有効化
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Initialize Azure OpenAI client
 client = AzureOpenAI(
@@ -11,10 +15,7 @@ client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
-print("<p>Hello World</p>")
-
 @app.route('/api/chat', methods=['POST'])
-
 def chat():
     """
     Endpoint to receive chat messages from external projects.
